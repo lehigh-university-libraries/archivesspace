@@ -1,0 +1,8 @@
+.env
+config
+!config/.keep
+backups
+!backups/.keep
+sql
+!sql/.keep
+

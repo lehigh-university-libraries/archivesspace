@@ -1,0 +1,532 @@
+uk:
+  brand:
+    title: АрхівзСпєс Публічний Інтерфейс
+    title_link_text: Повернутися на АрхівзСпєс головну сторінку
+    welcome_head: Ласкаво просимо до АрхівзСпєс
+    welcome_page_title: АрхівзСпєс Публічний Інтерфейс
+    welcome_message: "<p>Шукайте в наших колекціях, цифрових матеріалах тощо.<p>\n"
+  actions:
+    search: Пошук
+    search_header: Пошук в архівах
+    new_search: Новий Пошук
+    search_within: Пошук у результатах
+    search_in: Пошук %{type}
+    close: Закрити
+    refine_search: Уточнити пошук
+    backup: Повернутися на попередню сторінку
+    backup_abbr: Повернись
+    cite: Цитування
+    cite_item: Процитувати статтю
+    cite_item_description: Процитувати пункт Опис
+    digitized: 'Переглянути цифровий матеріал'
+    cilpboard_cite_item_description: "Копіювати опис елемента\nцитування в буфер обміну"
+    collection_overview: Огляд колекції
+    request: Запит
+    print: Завантажити PDF-файл
+    print-generating: Генерування
+    hierarch: Організація збору коштів
+    numeric: Інвентаризація контейнерів
+    clipboard: Копіювати в буфер обміну
+    cilpboard_cite_item: Копіювати посилання на елемент у буфер обміну
+    search_add_row: Додати рядок пошуку
+    search_remove_row: Видалити рядок нижче
+    staff_link: Тільки для персоналу
+    next: Далі
+    previous: Попередній
+  errors:
+    error_404_message: Запис %{type} до якого ви намагалися отримати доступ, не існує або, можливо, 
+      його було видалено.
+    error_404: '%{type} Запис не знайдено'
+    backend_down: Не вдається підключитися до бази даних
+    backend_down_message: Наразі у ArchivesSpace виникли технічні проблеми. Вибачте за незручності. 
+      Будь ласка, спробуйте пізніше.
+    unexpected_error: Ваш запит не вдалося виконати через неочікувану помилку
+    invalid_search_params: Недійсний параметр пошуку '%{value}' для поля '%{field}'
+  page_actions: Дії на сторінці
+  request:
+    email_header: Дякуємо за ваш запит
+    user_email: Ваша адреса електронної пошти
+    date: Очікувана дата прибуття
+    note: Примітка для персоналу
+    visit: Надіслати запит на відвідування %{repo_name} для перегляду 
+      <strong>%{archival_object}</strong>
+    required: необхідний
+    user_name: Ваше ім'я
+    submit: Надіслати запит
+    submitted: Дякуємо, ваш запит надіслано.   Невдовзі ви отримаєте електронного листа з копією 
+      вашого запиту.
+    errors:
+      name: Будь ласка, введіть своє ім'я
+      email: Будь ласка, введіть дійсну адресу електронної пошти
+    email:
+      subject: Запит на %{title}
+  search-limiting: обмежено до %{limit}
+  search-limits:
+    all: усі типи записів
+    repository: репозиторії
+    repositories: repositories
+    resource: колекції
+    resources: колекції
+    digital: цифрові матеріали
+    digital_object: цифрові матеріали
+    objects: архівні або цифрові записи
+    subject: предмет
+    agent: творець контенту
+    agents: творці контенту
+  search-field: Поле пошуку
+  searched-field: пошук %{field}
+  search_results:
+    highlighting:
+      found_in: Знайдено в
+      four_part_id: Ідентифікатор
+      dates: Дати
+      subjects_text: Суб'єкти
+      published_agents: Агенти
+      creators_text: Творці
+      role_enum_s: Ролі
+      linked_agent_roles: Ролі пов'язаних агентів
+      notes_published: Нотатки
+      finding_aid_title: Пошук допомоги Назва
+      instance_type_enum_s: Тип екземпляра
+      acquisition_type: Тип придбання
+    anything: '*'
+    filter:
+      year_begin: початок
+      from_to: 'Рокив: %{започинати в & {кінець}'
+      grand_child_container_u_sstr: Контейнер для онуків
+      child_container_u_sstr: Дочірній контейнер
+      type_enum_s: Тип
+      years: Рокив
+      to_year: До року
+      from: Від
+      to: До
+      years_include: Роки, які потрібно включити
+      year_now: зараз
+      langcode: Мова
+      published_series_title_u_sstr: Серія
+      instance_type_enum_s: Тип екземпляра
+      digital_object_type_enum_s: Тип
+      extent_type_enum_s: Ступінь
+      query: Текст
+      show_fewer: Показати менше
+      show_more: Показати більше
+      subjects: Тема
+      form: Пошук серед результатів
+      repository: Репозиторій
+      used_within_published_repository: Репозиторій
+      creators: Творець
+      fullrecord: Ключове слово
+      source: Джерело
+      classification_uri: Класифікація
+      published_agents: Імена
+      agents_text: Імена
+      linked_agent_roles: Роль
+      head: Фільтрувати результати
+      add: Додаткові фільтри
+      primary_type: Тип
+      subjects_text: Тема
+      title: Назва
+      creators_text: Творець
+      scope: Сфера застосування
+      notes: Нотатки
+      identifier: Ідентифікатор
+      from_year: З року
+    page_title: Знайдено %{count} результатів
+    results_head: 'Показано %{type}: %{start} - %{end} від %{total}'
+    result: Результат
+    results: Результати
+    search_for: Пошук %{type}, де %{conditions}
+    more_facets: Більше
+    filtered_by: Відфільтровано за
+    fewer_facets: Менше
+    error: Ваш пошук не вдалося завершити через неочікувану помилку
+    no_results: Записів не знайдено
+    filter_by: Фільтрувати за
+    title_contain: <strong>заголовок</strong> містить<span class='searchterm'>%{кс}</span>
+    op:
+      OR: або
+      NOT: і не
+      AND: й
+    op_first_row:
+      NOT: не
+    search_term: Пошуковий термін
+    remove_filter: Видалити цей фільтр
+    creators_text_contain: <strong>творець</strong> містить <span class='searchterm'>%{кс}</span>
+    subjects_text_contain: <strong> предмет</strong> містить  <span class='searchterm'>%{кс}</span>
+    keyword_contain: <strong>ключове слово(a)</strong>:<span class='searchterm'>%{кс}</span>
+    notes_contain: <strong>нотатка</strong> містить<span class='searchterm'>%{кс}</span>
+    identifier_contain: <strong> ідентифікатор</strong> містить  <span 
+      class='searchterm'>%{kw}</span>
+    in_repository: ' in <strong>%{ім''я}</strong>'
+  search_sorting:
+    desc: (за спаданням)
+    asc: (за зростанням)
+    sort_by: 'Сортувати за:'
+    sort: Сортувати
+    relevance: Релевантність
+    classification_identifier: Ідентифікатор
+    year_sort: Рік
+    sorting: '%{type} %{direction}'
+    title_sort: Назва
+    identifier: Ідентифікатор
+  inherit:
+    subfonds: Субфонди
+    subgrp: Підгрупа
+    class: Клас
+    inherited: З %{level}
+    collection: Колекція
+    series: Серія
+    sub-series: Підсерія
+    file: Файл
+    fonds: Фонди
+    item: Елемент
+    otherlevel: Інший рівень
+    recordgrp: Група записів
+  boolean:
+    "true": Так
+    "false": Ні
+  navbar:
+    search_placeholder: Введіть пошукові терміни
+    error_no_term: Пошуковий термін(и) не введено.
+    toggle_navigation: Перемикання навігації
+  navigation:
+    hierarchical: ієрархічна навігація
+    top_level: навігація верхнього рівня
+    mobile_menu: Меню навігації для менших пристроїв
+  internal_links:
+    main: Основний зміст
+    search_collection: Пошук у колекції
+    filter: Фільтрувати результати
+  accordion:
+    expand: Розгорнути все
+    collapse: Згорнути все
+  advanced_search:
+    operator_label: Оператор
+    operator:
+      OR: Або
+      AND: И
+      NOT: Не
+    remove_row: Видалити рядок
+    add_row: Додати рядок
+    limit_label: Обмеження за типом запису
+  accession:
+    _public:
+      related_accessions:
+        accessions: Супутні необроблені матеріали
+        sibling_of: Відносини між братами та сестрами
+        has_part: Зв'язок частини
+        deaccessions: Вилучений матеріал
+        forms_part_of: Зв'язок частини
+      section:
+        content_description: Опис вмісту
+        access_restrictions: Обмеження доступу
+        provenance: Походження
+        language: Мова опису
+        script: Сценарій опису
+        access_restrictions_apply: Застосовуються обмеження доступу
+        acquisition_type: Тип придбання
+        use_restrictions: Обмеження використання
+        use_restrictions_apply: Застосовуються обмеження використання
+        inventory: Інвентаризація
+    _singular: Необроблений матеріал
+    _plural: Необроблені матеріалий
+  multiple_containers: Кілька контейнерів
+  extent_number_type: '%{number} %{type}'
+  archival_object:
+    _public:
+      header:
+        ref_id: Ідентифікатор посилання
+  search-button:
+    label: Пошук
+  search-limit: Обмеження до %{limit}
+  containers: Інформація про фізичне сховище
+  related_accessions: Супутні необроблені матеріали
+  related_resources: Пов'язані колекції
+  linked_instances: Пов'язані записи
+  linked_digital_objects: Цифровий матеріал
+  context: Знайдено в
+  context_delimiter: /
+  resource:
+    identifier_separator: ':'
+    _public:
+      identifier: Ідентифікатор
+      identifier_pdf: посвідчення особи
+      ark_link_name: Ключ архівного ресурсу
+      extent: Ступінь
+      extent_full: Повний обсяг
+      finding_aid:
+        sponsor: Спонсор
+        edition_statement: Видання
+        series_statement: Опис серії
+        note: Примітка
+        head: Пошук допомоги та адміністративної інформації
+        script: Сценарій опису
+        revision: Заяви про перегляд
+        language_note: Мова опису примітки
+        title: Назва
+        subtitle: Підзаголовок
+        status: Статус
+        author: Автор
+        date: Дата
+        description_rules: Правила опису
+        identifier: Ідентифікатор
+        language: Мова опису
+      related_accessions:
+        deaccessions: Записи про вилучення
+        accessions: Записи про приєднання
+      script: Сценарій
+      lang: Мова матеріалів
+      lang_pdf: Мова матеріал
+      storage: Інформація про контейнер
+      additional: Додатковий опис
+      extent_partial: Частковий обсяг
+      dates: Дати
+      digital_object: Цифровий об'єкт
+      physdesc: Фізичний опис
+      identifier_ark: ідентифікатор [кар]
+      uri: Ідентифікатор [acпєс_URI]
+    load_records:
+      alert: Ця колекція містить %{count} записів.
+      showing: Показ
+      percent_convention: '%'
+      scroll: При прокручуванні
+      all: Все одразу
+      loading: Завантаження
+      load: Завантаження записів
+      load_all: Завантажити всі записи
+    _singular: Колекція
+    _plural: Колекції
+  coll_obj:
+    _singular: Колекція або запис
+    _plural: Колекції та/або записи
+  scope_note: Примітка щодо сфери застосування
+  contains: Містить %{count} %{type}
+  found: Знайдено в %{count} %{type}
+  extent_dims: ' ; %{dimensions}'
+  list: '%{type} Список'
+  cont_arr: Організація збору коштів
+  external_docs: Зовнішні документи
+  more_about: Більше про
+  archive:
+    _singular: Архів
+    _plural: Архівий
+  accessed: Доступ отримано
+  repository:
+    part: Частина
+    _plural: Репозиторії
+    what: Що знаходиться в цьому репозиторії?
+    _singular: Репозиторій
+    details: Деталі репозиторію
+  digital_object:
+    _singular: Цифровий запис
+    _plural: Цифрові матеріали
+    _public:
+      thumbnail: ніготь великого пальця
+      link: Посилання на цифровий об'єкт
+      badge_label: Цифровий %{level}
+      go: Перейти до файлу
+      additional: Додаткові версії файлів
+      url_encoded_data: Дані, закодовані за допомогою URL-адреси
+      browse_number_digital_objects_in_collection:
+        one: Один
+        few: Мало хто
+        many: Багато
+  top_container:
+    _singular: Контейнер
+    _plural: Контейнери
+    restricted: Обмежено
+  dig_cont_arr: Організація цифрових об'єктів
+  subgroups: Підгрупи
+  bulk:
+    _singular: Більшість матеріалів знайдено в %{дати}
+    _plural: Більшість матеріалів знайдено в %{дати}
+  agent_resource:
+    _plural: Пов’язані зовнішні ресурси
+    _singular: Пов'язаний зовнішній ресурс
+  pdf_reports:
+    controlled_access_headings: Заголовки контрольованого доступу
+    finding_aid_date_prefix: Цей допоміжний матеріал було створено за допомогою АрхівзСпєс на
+    finding_aid_written_in: Пошук допомоги, написаної на
+    administrative_information: Адміністративна інформація
+    collection_inventory: Інвентаризація колекції
+    summary_information: Зведена інформація
+    table_of_contents: Зміст
+    return_to_table_of_contents: Повернутися до змісту
+    publication_statement: Заява про публікацію
+    your_finding_aid_pdf: Ваш PDF-допоміжний засіб для пошуку "%{title}"
+    your_finding_aid_is_attached: Запитаний вами довідник з пошуку додається.
+    accessrestrict: Умови доступу
+    userestrict: Умови використання
+    accruals: Нарахування
+    acqinfo: Безпосереднє джерело придбання
+  extent_phys_details: ' : %{deets}'
+  subject:
+    _singular: Суб'єкт
+    _plural: Суб'єкти
+  classification:
+    _singular: Група записів
+    _plural: Групи записів
+    creator: Творець
+    identifier_separator: .
+    _public:
+      actions:
+        show_subgroups: Показати підгрупи
+  classification_term:
+    _plural: Умови групи записів
+    _singular: Термін групи записів
+    identifier_separator: /
+  an_agent: Ім'я
+  pui_agent:
+    parallel: Паралельні назви
+    related: Пов'язані імена
+    also_known_as: Також відомий під наступними назвами
+    _singular: Ім'я
+    _plural: Імена
+  record:
+    _singular: Запис
+    _plural: Записи
+  record_group:
+    _singular: Група записів
+    _plural: Групи записів
+  agent:
+    _public:
+      section:
+        other_names: Форми імен
+        related_agents: Пов'язані імена
+        related_agent_description: Опис
+        dates: Дати
+        related_agent_dates: Дати
+    _singular: Ім'я
+    _plural: Імена
+  agent_person:
+    _singular: Людина
+    _plural: Люди
+  agent_software:
+    _plural: Програмне забезпечення
+    _singular: Програмне забезпечення
+  agent_function:
+    _singular: Функція
+    _plural: Функції
+  agent_place:
+    _plural: Місця
+    _singular: Місце
+  agent_topic:
+    _plural: Теми
+    _singular: Тема
+  description: Про нас
+  contact: Контакти
+  number_of: 'Кількість %{type}:'
+  parent_inst: Материнська установа
+  email: Надіслати електронного листа
+  fax: Факс
+  agent_record_identifier:
+    primary_identifier: Чи є основним ідентифікатором?
+    identifier_type: Тип ідентифікатора
+    source: Джерело
+    record_identifier: Ідентифікатор запису
+    snac: Ідентифікатор соціальних мереж та архівного контексту (SNAC)
+  readmore:
+    see_more: Дивитися більше
+    see_less: Бачити менше
+  skipnav:
+    main_content: Перейти до основного вмісту
+    search: Перейти до пошуку
+    search_results: Перейти до результатів пошуку
+  search_tab: Пошук %{target}
+  agent_identifier:
+    identifier_type: Тип ідентифікатора
+    entity_identifier: Сутність Ідентифікатор
+  agent_family:
+    _singular: Сім'я
+    _plural: Сім'ї
+  agent_gender:
+    _plural: Стать
+    _singular: Стать
+  agent_occupation:
+    _singular: Професія
+    _plural: Професії
+  agent_corporate_entity:
+    _singular: Організація
+    _plural: Організації
+  agent_contact:
+    region: Штат/Регіон
+    address_2: Адреса 2
+    salutation: Привітання
+    address_1: Адреса 1
+    country: Країна
+    post_code: Поштовий індекс
+    fax: Факс
+    name: Ім'я контактної особи
+    address_3: Адреса 3
+    city: Місто
+    email: Електронна пошта
+  pdf_error:
+    location:
+      location_title_page: Помилка сталася під час створення титульної сторінки.
+      location_resource: Помилка сталася під час створення розділів, пов’язаних із записом ресурсу, 
+        який включає розділи «Зведена інформація», «Заголовки контрольованого доступу» та 
+        «Примітки».
+      location_archival_object: Помилка сталася під час створення інвентаризації колекції.
+      location_footer: Помилка сталася під час створення нижнього колонтитула.
+      location_toc: Помилка сталася під час створення змісту.
+      location_header: Помилка сталася під час створення заголовка.
+    additional_info:
+      invalid_markup: Ця помилка може виникнути через недійсну розмітку, присутню в примітці або 
+        підзаписі.
+    title: Під час створення цього PDF-файлу сталася помилка.
+    description: Вибачте, під час створення цього PDF-файлу сталася помилка. Ось діагностична 
+      інформація, яка допоможе визначити, що пішло не так.
+    headings:
+      location: Розташування помилки
+      message: Повідомлення про помилку
+      type: Тип помилки
+      additional_info: Додаткова інформація
+  agent_notes:
+    note_text: Примітка
+    _singular: Примітка
+    _plural: Нотатки
+    note_bioghist: Біографія
+    note_general_context: Загальний контекст
+    persistent_id: Постійний ідентифікатор
+    type: Тип примітки
+    content: Зміст
+    note_citation: Цитування
+    note_legal_status: Правовий статус
+    note_mandate: Мандат
+    note_structure_or_genealogy: Структура або генеалогія
+  use_date:
+    _singular: Дата використання
+    _plural: Використовуйте дати
+  used_language:
+    _plural: Використані мови
+    _singular: Використана мова
+  metadata_rights_declaration:
+    xlink_title_attribute: Атрибут заголовка Xlink
+    _plural: Декларації прав на метадані
+    descriptive_note: Описова примітка
+    file_uri: URI файлу
+    _singular: Декларація про права на метадані
+    license: Ліцензія
+    xlink_role_attribute: Атрибут ролі Xlink
+    xlink_arcrole_attribute: Атрибут Xlink Arcrole
+    file_version_xlink_actuate_attribute: Атрибут активації Xlink
+    file_version_xlink_show_attribute: Атрибут Xlink Show
+    last_verified_date: Дата останньої перевірки
+  date_label:
+    existence: Існування
+    usage: Використання
+  structured_date_label:
+    date: Дата
+  telephone:
+    _plural: Номери телефонів
+    number_type: Тип числа
+    ext: Додатковий телефонний номер
+    number: Номер
+  footer:
+    feedback_html: <a id='aspaceFeedbackLink' href='%{feedback_url}' target='_blank'>Надіслати відгук або
+      повідомити про проблему</a>
+    staff_interface_html: <a href="%{staff_url}">Інтерфейс для персоналу</a>
+    archivesspace_home_html: Відвідайте <a href='http://archivesspace.org'>ArchivesSpace.org</a>
+  languages:
+    select: Виберіть мову
+  

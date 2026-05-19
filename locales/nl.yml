@@ -1,0 +1,24 @@
+nl:
+  reports:
+    formats:
+      json: JSON
+      csv: CSV
+      pdf: PDF
+      html: HTML
+      rtf: RTF
+    linked_records_in_json: Gekoppelde records in JSON
+    headings:
+      context: Bron/Toewijzing
+      container_profile: Containerprofiel
+      location: Locatie
+      title: Titel
+      type: Type
+      indicator: Indicator
+      barcode: Barcode
+  states:
+    suppressed: Onderdrukt
+    deleted: Verwijderd
+    auto_generated: Wordt automatisch gegenereerd bij registratie
+  validation_errors:
+    mixed_content_invalid_inline_ead: "Ongeldige EAD-opmaak: gebruik rechte aanhalingstekens (\" of ') voor attribuutwaarden en zorg ervoor dat tags goed gevormd zijn."
+    mixed_content_disallowed_tag: "Niet-toegestane HTML-tag gedetecteerd. Om veiligheidsredenen zijn tags zoals &lt;script&gt;, &lt;style&gt;, &lt;iframe&gt; en formulierelementen niet toegestaan in velden met gemengde inhoud."
