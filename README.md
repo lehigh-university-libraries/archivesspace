@@ -42,7 +42,7 @@ Lehigh's default TLS setup is managed by SET using apache. To stay inline with S
 ```
 ## Docker overriddes
 
-- SET ships syslog to their ELK stack 
+SET ships syslog to their ELK stack. So to get docker's logs there we ship them to syslog.
 ```
 $ cat /etc/docker/daemon.json
 {
