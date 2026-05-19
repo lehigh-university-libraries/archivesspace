@@ -36,7 +36,7 @@ Lehigh's default TLS setup is managed by SET using apache. To stay inline with S
 
         # Reverse proxy to Docker container
         ProxyPreserveHost On
-	RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}e"
+		RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}e"
         ProxyPass / http://localhost:8200/
         ProxyPassReverse / http://localhost:8200/
 ```
