@@ -3,7 +3,7 @@
 
 services:
   app:
-    image: archivesspace/archivesspace:${ARCHIVESSPACE_DOCKER_TAG}
+    image: archivesspace/archivesspace:4.2.0@sha256:7bd8aa78412715044df84450bf3925b4e8a36a55fe5a11c4710e26978f82c73b
     platform: linux/x86_64
     container_name: archivesspace
     restart: unless-stopped
@@ -20,7 +20,7 @@ services:
       - ./stylesheets:/archivesspace/stylesheets
 
   db:
-    image: mysql:8
+    image: mysql:8.4.9@sha256:c36050afdca850f23cef85703f84c7531a5ae155a11b5ee1c60acb09937c4084
     platform: linux/x86_64
     cap_add:
       - SYS_NICE
@@ -29,14 +29,12 @@ services:
     env_file:
       - .env
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb_buffer_pool_size=1G  --innodb_buffer_pool_instances=1 --log_bin_trust_function_creators=1
-    ports:
-      - "3307:3306"
     volumes:
       - db-data:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
 
   db-backup:
-    image: databack/mysql-backup:latest
+    image: databack/mysql-backup:1.4.0@sha256:9a9a12dc942c370040ced1d43ab9f7d1162e9fde7f38b0f7749c3516d79a812c
     platform: linux/x86_64
     container_name: db-backup
     restart: unless-stopped
@@ -56,7 +54,7 @@ services:
       - db
 
   solr:
-    image: archivesspace/solr:${ARCHIVESSPACE_DOCKER_TAG}
+    image: archivesspace/solr:4.2.0@sha256:6bbea2a9464fb4a6200f9c70a2b05537816f8c3e3c8205b67a593f7113862523
     platform: linux/x86_64
     container_name: solr
     restart: unless-stopped
@@ -66,13 +64,11 @@ services:
       - solr-precreate
       - archivesspace
       - /opt/solr/server/solr/configsets/archivesspace
-    ports:
-      - "8984:8983"
     volumes:
       - solr-data:/var/solr
 
   proxy:
-    image: nginx:1.21
+    image: nginx:1.31.0@sha256:06aa3d7be10bc6307990c81bdca075793132e9163391abc370c015e344e23128
     platform: linux/x86_64
     container_name: proxy
     restart: unless-stopped
