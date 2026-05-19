@@ -1,0 +1,22 @@
+[Unit]
+Description=archivesspace
+BindsTo=docker.service
+After=docker.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+WorkingDirectory=/opt/archivesspace
+Environment="HOSTNAME=%H"
+ExecStartPre=-touch /opt/archivesspace/rollout.lock
+ExecStart=/usr/bin/docker compose up -d
+ExecStartPost=-rm -f /opt/archivesspace/rollout.lock
+Restart=on-failure
+RestartSec=15s
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

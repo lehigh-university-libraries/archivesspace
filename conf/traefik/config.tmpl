@@ -1,0 +1,84 @@
+http:
+  routers:
+    archivesspace-staff:
+      rule: PathPrefix(`/staff`) || Host(`archivesspace-staff.lib.lehigh.edu`) || Host(`as-staff-test.lib.lehigh.edu`)
+      middlewares:
+        - oncampus
+      entryPoints:
+        - http
+      service: archivesspace-staff
+
+    archivesspace-api:
+      rule: PathPrefix(`/api`)
+      entryPoints:
+        - http
+      service: archivesspace-api
+
+    archivesspace:
+      rule: PathPrefix(`/`)
+      middlewares:
+        - captcha-protect
+      entryPoints:
+        - http
+      service: archivesspace
+
+  services:
+    archivesspace:
+      loadBalancer:
+        servers:
+          - url: http://app:8081
+    archivesspace-api:
+      loadBalancer:
+        servers:
+          - url: http://app:8089
+    archivesspace-oai:
+      loadBalancer:
+        servers:
+          - url: http://app:8082
+    archivesspace-staff:
+      loadBalancer:
+        servers:
+          - url: http://app:8080
+  middlewares:
+    oncampus:
+      ipAllowList:
+        ipStrategy:
+          depth: 1
+        sourceRange:
+          - "128.180.0.0/16"
+    captcha-protect:
+      plugin:
+        captcha-protect:
+          rateLimit: 0
+          ipv4subnetMask: 8
+          # 10d
+          window: 864000
+          protectRoutes: /
+          protectParameters: "true"
+          loglevel: {{ env "LOG_LEVEL" }}
+          challengeTmpl: /challenge.tmpl.html
+          challengeURL: ""
+          challengeStatusCode: 429
+          captchaProvider: turnstile
+          siteKey: "{{ env "TURNSTILE_SITE_KEY" }}"
+          secretKey: "{{ env "TURNSTILE_SECRET_KEY" }}"
+          enableStatsPage: "true"
+          ipForwardedHeader: X-Forwarded-For
+          goodBots:
+            - apple.com
+            - archive.org
+            - commoncrawl.org
+            - duckduckgo.com
+            - iframely.com
+            - facebook.com
+            - instagram.com
+            - kagibot.org
+            - linkedin.com
+            - msn.com
+            - openalex.org
+            - twitter.com
+            - x.com
+          persistentStateFile: /data/state.json
+          enableGooglebotIPCheck: "true"
+          periodSeconds: 30
+          failureThreshold: 3
