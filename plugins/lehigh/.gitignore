@@ -1,0 +1,6 @@
+*.bak
+*.back
+*~
+.DS_Store
+public/assets/ATexports/*
+!public/assets/ATexports/.gitkeep

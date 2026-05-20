@@ -1,0 +1,80 @@
+/* hides Aspace nav bar*/
+	#navigation > nav {
+		display: none;
+	}
+
+/*fix some odd spacing that results from adding dropdown menus, likely from CSS clashes between theme/bootstrap/lts */
+	.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+		/* prevent entire content block from moving right about .25" */
+		/* prevent entire header from shrinking about .25" both left and right */
+                /* next line removed to fix theme for AS v4.5 */
+                /* width: unset !important; */
+
+		--bs-gutter-x: unset !important;
+	}
+
+
+.mt-2, .my-2 {
+
+     margin-top: 0rem !important;
+
+}
+
+
+/* prevent excessive bottom padding for logo */
+	.lehigh-header .lehigh-branding {
+		padding: 1.3em 0 0 !important;
+	}
+
+/* add green nav bar to pages other than index.html */
+	.faux-navbar {                     
+		background-color: #1d5970;         
+		height: 55px;                      
+		width: 100%;                       
+		margin: 0;                         
+		padding: 0;                        
+		margin-bottom: 25px;               
+	}                                  
+
+/* adjust lower margin on stand-alone search page */
+	.search {
+		padding: 50px;
+		margin-top: -20px;
+	}
+
+/* The following styles are for the dropdown browse menu in the header */
+
+	.dropdown-menu {
+		display: none;
+		position: absolute;
+		background-color: #f6f6f6;
+ 		min-width: 230px;
+		border: 1px solid #ddd;
+		z-index: 1;
+		padding: 0;
+		list-style: none;
+	}
+
+	.dropdown-menu.show {
+		display: block;
+	}
+
+	.dropdown-toggle {
+		position: relative;
+ 		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+		color: black;
+	}
+
+	.dropdown-toggle::after {
+		content: "";
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 5px solid currentColor; /* Creates the triangle */
+		margin-left: 5px;
+		display: inline-block;
+		position: relative;
+		top: -4px; /* Moves it up */
+	}

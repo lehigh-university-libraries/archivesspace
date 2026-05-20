@@ -1,0 +1,73 @@
+/* The following css is injected by javascript only on the front-page.                */
+/* See _header.html.erb for <script> include and /assets/js/css-injector.js for code. */
+
+body > div.container-fluid.no-pad > header > nav {
+border-bottom: 2px solid #333333;
+}
+
+/* don't show the green seperator bar on the front-page*/ 
+.faux-navbar {
+all: unset;
+}                        
+
+/* add manuscript image background to front-page search interface */
+#content {
+    background-image: url('/assets/images/archives-hero.jpg'); /* Replace with the actual path to your image */
+    background-size: 110% auto;
+    background-position: -50px center;
+    width: 100%;
+    padding: 20px; /* Adjust padding as needed */
+    margin: 0;
+}
+
+/* hide i18n greetings messages since we don't use them for english or any other language */
+#content > div:nth-child(3) > div > h2 {
+display: none;
+}
+
+#content > div:nth-child(3) > div > div > p {
+display: none;
+}
+
+/* move front-page language select bar down a bit */ 
+#language_select {
+margin-top:40px;
+margin-bottom: 50px;
+margin-right: 50px;
+}
+
+/* style front-page language select bar */
+span.lang-select {
+background:#cccccc;
+border: 1px solid black;
+padding: 25px;
+opacity: 90%;
+}
+
+/* style front-page search heading*/
+
+h2, .h2 {
+color: black;
+text-decoration: underline;
+text-align: center;
+}
+
+/* style front-page search bar */
+.search {
+background: #cccccc;
+border: 1px solid black;
+/* top margin is a hack that will have to be changed back to 50px once I figure out how to remove welcome_head from en.yml*/
+margin: 0px 50px 50px 50px; 
+padding: 50px;
+opacity: 90%;
+}
+
+#content > div.search > h3 {
+color: black;
+font-weight: 550;
+text-align: center;
+text-decoration: underline;
+margin-top: -25px;
+margin-bottom: 25px;
+
+}

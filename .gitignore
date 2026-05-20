@@ -1,6 +1,6 @@
 .env
 config/*
-!config/.keep
+!config/config.rb
 backups/*
 !backups/.keep
 sql/*
