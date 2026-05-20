@@ -1,5 +1,13 @@
 http:
   routers:
+    archivesspace-atexports:
+      rule: PathPrefix(`/plugins/lehigh/public/assets/ATexports`)
+      middlewares:
+        - upenn-allowlist
+      entryPoints:
+        - http
+      service: archivesspace
+
     archivesspace-staff:
       rule: PathPrefix(`/staff`) || Host(`archivesspace-staff.lib.lehigh.edu`) || Host(`as-staff-test.lib.lehigh.edu`)
       middlewares:
@@ -10,6 +18,8 @@ http:
 
     archivesspace-api:
       rule: PathPrefix(`/api`)
+      middlewares:
+        - api-stripprefix
       entryPoints:
         - http
       service: archivesspace-api
@@ -40,6 +50,17 @@ http:
         servers:
           - url: http://app:8080
   middlewares:
+    api-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/api"
+    upenn-allowlist:
+      ipAllowList:
+        ipStrategy:
+          depth: 1
+        sourceRange:
+          - "165.123.34.148/32"
+          - "128.180.0.0/16"
     oncampus:
       ipAllowList:
         ipStrategy:

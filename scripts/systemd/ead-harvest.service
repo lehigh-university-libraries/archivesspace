@@ -1,0 +1,8 @@
+[Unit]
+Description=ArchivesSpace EAD harvest for UPenn
+After=archivesspace.service
+Requires=archivesspace.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/archivesspace/scripts/ead-harvest/harvest.sh
