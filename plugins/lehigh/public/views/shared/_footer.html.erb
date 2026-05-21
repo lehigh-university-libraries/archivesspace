@@ -106,17 +106,9 @@
                 </div>
                   <!-- begin dynamic link builder -->
                     <script>
-                      const h = window.location.hostname;
-                      let s;
-
-                      if (h === 'as-test.lib.lehigh.edu') {
-                      s = 'as-staff-test.lib.lehigh.edu'; // Special case for as-test
-                      } else {
-                        s = h.replace('.lib.lehigh.edu', '-staff.lib.lehigh.edu'); // General case
-                      }
-
-                      const staffLoginURL = `https://${s}/?login=true`; // Corrected URL
-                      document.getElementById('staff-login-link-container').innerHTML = `<a href="${staffLoginURL}" target="_blank">Login</a>`;
+                      const staffLoginURL = `${window.location.origin}/staff/?login=true`;
+                      document.getElementById('staff-login-link-container').innerHTML = 
+                      `<a href="${staffLoginURL}" target="_blank">Login</a>`;
                     </script>
                   <-- end dynamic link builder -->
             </div>
