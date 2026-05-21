@@ -20,6 +20,8 @@ http:
       rule: PathPrefix(`/api`)
       entryPoints:
         - http
+      middlewares:
+        - api-stripprefix
       service: archivesspace-api
 
     archivesspace-oai:
@@ -54,6 +56,10 @@ http:
         servers:
           - url: http://app:8080
   middlewares:
+    api-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/api"
     upenn-allowlist:
       ipAllowList:
         ipStrategy:
