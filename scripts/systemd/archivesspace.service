@@ -9,11 +9,11 @@ StartLimitBurst=3
 User=root
 Group=root
 Type=oneshot
-WorkingDirectory=/opt/archivesspace-docker-config
+WorkingDirectory=/opt/archivesspace
 Environment="HOSTNAME=%H"
-ExecStartPre=-touch /opt/archivesspace-docker-config/rollout.lock
+ExecStartPre=-touch /opt/archivesspace/rollout.lock
 ExecStart=/usr/bin/docker compose up -d
-ExecStartPost=-rm -f /opt/archivesspace-docker-config/rollout.lock
+ExecStartPost=-rm -f /opt/archivesspace/rollout.lock
 Restart=on-failure
 RestartSec=15s
 RemainAfterExit=yes
