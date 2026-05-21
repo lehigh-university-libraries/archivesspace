@@ -1,7 +1,7 @@
 http:
   routers:
     archivesspace-atexports:
-      rule: PathPrefix(`/plugins/lehigh/public/assets/ATexports`)
+      rule: PathPrefix(`/assets/ATexports`)
       middlewares:
         - upenn-allowlist
       entryPoints:
