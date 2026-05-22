@@ -27,8 +27,8 @@ AppConfig[:indexer_log_level] = "error"
 # Load plugins
 AppConfig[:plugins] = ['lehigh', 'lcnaf', 'static-pages']
 # Configure proxy URLs
-###AppConfig[:frontend_proxy_url] = "https://archivesspace-staff.lib.lehigh.edu/"
-###AppConfig[:public_proxy_url] = "https://archivesspace.lib.lehigh.edu/"
+AppConfig[:frontend_proxy_url] = "https://#{ENV['AS_HOSTNAME']}/staff"
+AppConfig[:public_proxy_url] = "https://#{ENV['AS_HOSTNAME']}"
 # Configure PUI
 AppConfig[:pui_branding_img] = '/assets/images/logo.png'
 AppConfig[:pui_branding_img_alt_text] = 'Lehigh University Logo'
@@ -60,11 +60,6 @@ AppConfig[:solr_url] = 'http://solr:8983/solr/archivesspace'
 
 ## Use Rails.force_ssl when running in production
 AppConfig[:force_ssl] = false
-
-## Configure proxy URLs
-AppConfig[:frontend_proxy_url] = 'http://localhost/staff'
-AppConfig[:public_proxy_url] = 'http://localhost'
-AppConfig[:oai_proxy_url] = 'http://localhost/oai'
 
 ################################################################################
 ################################################################################
