@@ -3,7 +3,7 @@
 		display: none;
 	}
 
-/*fix some odd spacing that results from adding dropdown menus, likely from CSS clashes between theme/bootstrap/lts */
+/* fix some odd spacing that results from adding dropdown menus, likely from CSS clashes between theme/bootstrap/lts */
 	.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
 		/* prevent entire content block from moving right about .25" */
 		/* prevent entire header from shrinking about .25" both left and right */
@@ -13,12 +13,10 @@
 		--bs-gutter-x: unset !important;
 	}
 
-
-.mt-2, .my-2 {
-
-     margin-top: 0rem !important;
-
-}
+/* remove slight white padding between navbar and background image */
+        .mt-2, .my-2 {
+                margin-top: 0rem !important;
+        }
 
 
 /* prevent excessive bottom padding for logo */
@@ -35,6 +33,11 @@
 		padding: 0;                        
 		margin-bottom: 25px;               
 	}                                  
+
+/* add bold to navbar menus options */
+	.lehigh-header .lehigh-nav.lehigh-header-nav .utility-nav--mid ul li a {
+    		font-weight: bold !important;
+	}
 
 /* adjust lower margin on stand-alone search page */
 	.search {
