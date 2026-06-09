@@ -61,6 +61,9 @@ AppConfig[:solr_url] = 'http://solr:8983/solr/archivesspace'
 ## Use Rails.force_ssl when running in production
 AppConfig[:force_ssl] = false
 
+# Disable the OAI server (3.5 had it off; 4.2 loads oai.war by default)
+AppConfig[:enable_oai] = false
+
 ################################################################################
 ################################################################################
 #######                         END LEHIGH CONFIG                        #######
