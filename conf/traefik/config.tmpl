@@ -64,8 +64,6 @@ http:
           - "/api"
     upenn-allowlist:
       ipAllowList:
-        ipStrategy:
-          depth: 1
         sourceRange:
           - "165.123.34.148/32"
           - "128.180.0.0/16"
@@ -75,8 +73,6 @@ http:
         permanent: true
     oncampus:
       ipAllowList:
-        ipStrategy:
-          depth: 1
         sourceRange:
           - "128.180.0.0/16"
     captcha-protect:
@@ -96,7 +92,6 @@ http:
           siteKey: "{{ env "TURNSTILE_SITE_KEY" }}"
           secretKey: "{{ env "TURNSTILE_SECRET_KEY" }}"
           enableStatsPage: "true"
-          ipForwardedHeader: X-Forwarded-For
           exemptIps:
             # Lehigh range
             - 128.180.0.0/16
