@@ -5,3 +5,6 @@ backups/*
 !backups/.keep
 sql/*
 !sql/.keep
+certs/*
+!certs/.keep
+docker-compose.override.yml

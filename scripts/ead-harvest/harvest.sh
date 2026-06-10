@@ -3,6 +3,7 @@
 SCRIPT_DIR="$(dirname "$0")"
 if [[ -f "$SCRIPT_DIR/.env" ]]; then
   set -a
+  # shellcheck disable=SC1091
   source "$SCRIPT_DIR/.env"
   set +a
 fi

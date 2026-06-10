@@ -1,42 +1,44 @@
 http:
   routers:
+    http-redirect:
+      rule: HostRegexp(`.*`)
+      middlewares:
+        - https-redirect
+      service: noop@internal
+      priority: 1
+
     archivesspace-atexports:
       rule: PathPrefix(`/assets/ATexports`)
       middlewares:
         - upenn-allowlist
-      entryPoints:
-        - http
       service: archivesspace
+      tls: {}
 
     archivesspace-staff:
       rule: PathPrefix(`/staff`) || Host(`archivesspace-staff.lib.lehigh.edu`) || Host(`as-staff-test.lib.lehigh.edu`)
       middlewares:
         - oncampus
-      entryPoints:
-        - http
       service: archivesspace-staff
+      tls: {}
 
     archivesspace-api:
       rule: PathPrefix(`/api`)
-      entryPoints:
-        - http
       middlewares:
         - api-stripprefix
       service: archivesspace-api
+      tls: {}
 
     archivesspace-oai:
       rule: PathPrefix(`/oai`)
-      entryPoints:
-        - http
       service: archivesspace-oai
+      tls: {}
 
     archivesspace:
       rule: PathPrefix(`/`)
       middlewares:
         - captcha-protect
-      entryPoints:
-        - http
       service: archivesspace
+      tls: {}
 
   services:
     archivesspace:
@@ -67,6 +69,10 @@ http:
         sourceRange:
           - "165.123.34.148/32"
           - "128.180.0.0/16"
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
     oncampus:
       ipAllowList:
         ipStrategy:
@@ -117,3 +123,16 @@ http:
           enableGooglebotIPCheck: "true"
           periodSeconds: 30
           failureThreshold: 3
+tls:
+  certificates:
+    - certFile: /run/secrets/CERT_PUBLIC_KEY
+      keyFile: /run/secrets/CERT_PRIVATE_KEY
+  options:
+    default:
+      minVersion: VersionTLS12
+      cipherSuites:
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA

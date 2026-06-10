@@ -1,0 +1,8 @@
+# local overrides. enable with
+# ln -s docker-compose.dev.yml docker-compose.override.yml 
+services:
+  mariadb:
+    ports:
+      - "3306:3306"
+  db-backup:
+    profiles: [none]

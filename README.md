@@ -9,13 +9,25 @@
 - Production: https://archivesspace.lib.lehigh.edu/staff
 - Staging: https://as-test.lib.lehigh.edu/staff
 
-## Initial setup
+## Quick start
+
+To run the stack locally you can
+
+```
+git clone git@github.com:lehigh-university-libraries/archivesspace.git
+cd archivesspace
+make up
+```
+
+The stack should then be available at [https://localhost](https://localhost)
+
+## Initial setup (staging and production)
 
 ```
 cd /opt
-git clone https://github.com/lehigh-university-libraries/archivesspace archivesspace-docker-config
+git clone https://github.com/lehigh-university-libraries/archivesspace archivesspace
 ## follow instructions at https://docs.archivesspace.org/administration/docker/
-sudo cp /opt/archivesspace-docker-config/scripts/systemd/archivesspace.service /etc/systemd/system/archivesspace.service
+sudo cp /opt/archivesspace/scripts/systemd/archivesspace.service /etc/systemd/system/archivesspace.service
 sudo systemctl enable archivesspace
 sudo systemctl start archivesspace
 ```
@@ -24,22 +36,16 @@ sudo systemctl start archivesspace
 
 ArchivesSpace's docker compose stack is bound to the docker service so when the docker daemon restarts on the host the service will start back up. The systemd unit is in [./scripts/systemd](./scripts/systemd/archivesspace.service)
 
-### TLS
 
-Lehigh's default TLS setup is managed by SET using apache. To stay inline with SET's TLS management TLS requests to ArchiveSpace are terminated by apache on the host machine and forwarded to docker via an Apach config like this
+## TLS Certs
+
+Traefik is configured to use Lehigh's wildcard cert. When copying the cert for traefik, ensure the full chain is in `./certs/cert.pem`
 
 ```
-        RequestHeader set X-Forwarded-Proto "https"
-
-        # Exclude /server-status from the proxy
-        ProxyPass /server-status !
-
-        # Reverse proxy to Docker container
-        ProxyPreserveHost On
-		RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}e"
-        ProxyPass / http://localhost:8200/
-        ProxyPassReverse / http://localhost:8200/
+cd /opt/archivesspace
+make lehigh-certs
 ```
+
 ## Docker overriddes
 
 SET ships syslog to their ELK stack. So to get docker's logs there we ship them to syslog.
