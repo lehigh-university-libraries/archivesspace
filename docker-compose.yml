@@ -1,9 +1,3 @@
-x-logging: &default-logging
-  driver: "json-file"
-  options:
-    max-file: "5"
-    max-size: "10m"
-
 secrets:
   CERT_PUBLIC_KEY:
     file: ./certs/cert.pem
@@ -16,7 +10,6 @@ services:
     platform: linux/x86_64
     container_name: archivesspace
     restart: unless-stopped
-    logging: *default-logging
     env_file:
       - .env
     depends_on:
@@ -35,7 +28,6 @@ services:
     cap_add:
       - SYS_NICE
     container_name: mysql
-    logging: *default-logging
     restart: unless-stopped
     env_file:
       - .env
@@ -49,7 +41,6 @@ services:
     platform: linux/x86_64
     container_name: db-backup
     restart: unless-stopped
-    logging: *default-logging
     user: "0"
     env_file:
       - .env
@@ -70,7 +61,6 @@ services:
     platform: linux/x86_64
     container_name: solr
     restart: unless-stopped
-    logging: *default-logging
     env_file:
       - .env
     command:
@@ -118,7 +108,6 @@ services:
       - ./conf/traefik/challenge.tmpl.html:/challenge.tmpl.html:ro
       - /var/run/docker.sock:/var/run/docker.sock:z
       - traefik-data:/data
-    logging: *default-logging
     healthcheck:
       test: traefik healthcheck --ping
       start_period: 5s
