@@ -25,6 +25,7 @@ http:
       rule: PathPrefix(`/api`)
       middlewares:
         - api-stripprefix
+        - oncampus
       service: archivesspace-api
       tls: {}
 
