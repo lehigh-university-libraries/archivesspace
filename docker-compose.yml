@@ -6,7 +6,7 @@ secrets:
 
 services:
   app:
-    image: archivesspace/archivesspace:4.2.0@sha256:7bd8aa78412715044df84450bf3925b4e8a36a55fe5a11c4710e26978f82c73b
+    image: archivesspace/archivesspace:4.2.1@sha256:f46223c4e3fe5f32384779b0796f777b83db3ce878f76c727adf5aa96d88f4de
     platform: linux/x86_64
     container_name: archivesspace
     restart: unless-stopped
@@ -37,7 +37,7 @@ services:
       - ./sql:/docker-entrypoint-initdb.d
 
   db-backup:
-    image: databack/mysql-backup:1.4.0@sha256:9a9a12dc942c370040ced1d43ab9f7d1162e9fde7f38b0f7749c3516d79a812c
+    image: databack/mysql-backup:1.5.0@sha256:668f299c4f0ecbf82f0178776d980f646cf12b74138565990f66038db191180a
     platform: linux/x86_64
     container_name: db-backup
     restart: unless-stopped
@@ -57,7 +57,7 @@ services:
       - db
 
   solr:
-    image: archivesspace/solr:4.2.0@sha256:6bbea2a9464fb4a6200f9c70a2b05537816f8c3e3c8205b67a593f7113862523
+    image: archivesspace/solr:4.2.1@sha256:22d3e2002e1875385da83d3edfbd5931591fd410bd3e5be16823c8af6accbec4
     platform: linux/x86_64
     container_name: solr
     restart: unless-stopped
@@ -71,7 +71,7 @@ services:
       - solr-data:/var/solr
 
   traefik:
-    image: traefik:v3.7.5@sha256:e4d98158c01ad752fc1071d4e9573788747230d902cdde00a772516e692d07c9
+    image: traefik:v3.7.6@sha256:21a3d83696379bac6434bb32e1dde0aff0e84ef2abd053ed3db87d3f45e749b2
     restart: always
     container_name: traefik
     command: >-
