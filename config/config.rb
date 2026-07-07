@@ -55,14 +55,17 @@ AppConfig[:resequence_on_startup] = false
 # Change number of items per set within the pager, Staff interface only
 AppConfig[:default_page_size] = 50
 
-## The ArchivesSpace Solr index url default.  You can set it to something else below.
+# The ArchivesSpace Solr index url default.  You can set it to something else below.
 AppConfig[:solr_url] = 'http://solr:8983/solr/archivesspace'
 
-## Use Rails.force_ssl when running in production
+# Use Rails.force_ssl when running in production
 AppConfig[:force_ssl] = false
 
 # Disable the OAI server (3.5 had it off; 4.2 loads oai.war by default)
 AppConfig[:enable_oai] = false
+
+# Allow instance deletion in Staff UI
+AppConfig[:bulk_archival_object_updater_apply_deletes] = true
 
 ################################################################################
 ################################################################################
