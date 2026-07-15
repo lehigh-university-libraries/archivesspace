@@ -83,6 +83,9 @@ def main():
     r.raise_for_status()
     repos = [x["uri"].split("/")[-1] for x in r.json()]
     repos = [x for x in repos if x not in EXCLUDE_REPOS]
+    repo_names = {}
+    for x in r.json():
+        repo_names[x["uri"].split("/")[-1]] = x.get("repo_code") or x.get("name") or ""
     if EXCLUDE_REPOS:
         print(f"Excluding repositories: {','.join(sorted(EXCLUDE_REPOS))}", file=sys.stderr)
     print(f"Scanning repositories: {','.join(repos)}", file=sys.stderr)
@@ -110,6 +113,7 @@ def main():
                 row = {"repo": repo, "resource_id": rid, "ead_id": ead_id,
                        "title": title, "publish": publish,
                        "finding_aid_status": status,
+                       "repository": repo_names.get(repo, repo),
                        "staff_url": (f"{STAFF_URL}/resources/{rid}"
                                      if STAFF_URL else "")}
 
@@ -185,11 +189,12 @@ def main():
 
     # CSV
     cols = ["repo", "resource_id", "ead_id", "title", "publish",
-            "finding_aid_status", "action", "reason", "filename", "staff_url"]
+            "finding_aid_status", "action", "reason", "filename",
+            "repository", "staff_url"]
     with open(CSV_PATH, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
-        for row in sorted(rows, key=lambda x: (x["repo"], x["ead_id"])):
+        for row in sorted(rows, key=lambda x: (int(x["repo"]), x["ead_id"])):
             w.writerow(row)
 
     # Summary
