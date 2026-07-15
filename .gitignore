@@ -8,3 +8,6 @@ sql/*
 certs/*
 !certs/.keep
 docker-compose.override.yml
+plugins/lehigh/public/assets/ASexports/
+scripts/mkead/mkead-output.csv
+scripts/mkead/ARCHIVIST-QUESTIONS.md
