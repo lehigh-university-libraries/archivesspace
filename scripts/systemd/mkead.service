@@ -1,0 +1,9 @@
+[Unit]
+Description=Generate EAD exports for UPenn (mkead.py)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/archivesspace/scripts/mkead/mkead.py
+User=root

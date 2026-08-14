@@ -1,5 +1,5 @@
 [Unit]
-Description=Nightly ArchivesSpace EAD harvest
+Description=Nightly UPenn EAD export
 
 [Timer]
 OnCalendar=*-*-* 03:00:00
