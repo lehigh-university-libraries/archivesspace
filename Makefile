@@ -40,4 +40,4 @@ ping:  ## Ensure site is available.
 	./scripts/ping.sh
 
 lehigh-certs: ## Place Lehigh's certs into traefik's cert store
-	./scripts/lehigh-certs.sh
+	sudo ./scripts/lehigh-certs.sh

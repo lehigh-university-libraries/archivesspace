@@ -112,6 +112,9 @@ services:
       - traefik-data:/data
     healthcheck:
       test: traefik healthcheck --ping
+      interval: 2s
+      timeout: 2s
+      retries: 15
       start_period: 5s
     depends_on:
       app:

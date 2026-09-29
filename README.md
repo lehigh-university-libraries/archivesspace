@@ -39,7 +39,40 @@ ArchivesSpace's docker compose stack is bound to the docker service so when the 
 
 ## TLS Certs
 
-Traefik is configured to use Lehigh's wildcard cert. When copying the cert for traefik, ensure the full chain is in `./certs/cert.pem`
+Traefik uses Lehigh's Let's Encrypt wildcard certificate through Compose
+secrets. The weekly wildcard updater invokes `/usr/local/sbin/local-cert-hook`
+after it downloads these files:
+
+- Full certificate chain: `/etc/ssl/certs/le/lib.lehigh.edu.pem`
+- Private key: `/etc/ssl/private/le/lib.lehigh.edu.key`
+
+Install the hook and its root-only configuration on each Docker host:
+
+```
+cd /opt/archivesspace
+sudo install -o root -g root -m 0600 \
+  scripts/local-cert-hook.env.example /etc/default/local-cert-hook
+sudoedit /etc/default/local-cert-hook # set SLACK_WEBHOOK and EXPECTED_HOST
+sudo install -o root -g root -m 0755 \
+  scripts/lehigh-certs.sh /usr/local/sbin/local-cert-hook
+sudo chown root:root /opt/archivesspace /opt/archivesspace/docker-compose.yml certs
+sudo chmod go-w /opt/archivesspace /opt/archivesspace/docker-compose.yml certs
+```
+
+The hook validates the full chain, hostname, expiry, private key, and key/cert
+pair before changing anything. It compares SHA-256 checksums with the files
+already backing the Compose secrets, so an unchanged renewal exits without
+recreating Traefik. When either file has changed, it atomically installs both
+and force-recreates only Traefik so Docker remounts the secrets. Any validation,
+Compose, or healthcheck failure is sent to Slack and logged to stderr and
+syslog.
+
+The hook and every path it uses for root-level Compose operations must remain
+root-owned and not group/world-writable. Salt can manage the two installed
+files instead of the commands above; keep `/etc/default/local-cert-hook` at
+mode `0600` because it contains the Slack webhook.
+
+To invoke the same hook manually:
 
 ```
 cd /opt/archivesspace
