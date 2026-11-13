@@ -40,7 +40,7 @@ services:
 
   db-backup:
     # Pin MYSQL_BACKUP_IMAGE to the published digest after image release.
-    image: ${MYSQL_BACKUP_IMAGE:-ghcr.io/lehigh-university-libraries/mysql-backup:main}
+    image: ${MYSQL_BACKUP_IMAGE:-ghcr.io/lehigh-university-libraries/mysql-backup:main@sha256:f74c8f6f904cb55489d3b050b004d9be1ab155b3402679e0d9ea39b1df05d9f4}
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
