@@ -39,20 +39,18 @@ services:
       - ./sql:/docker-entrypoint-initdb.d
 
   db-backup:
-    image: databack/mysql-backup:1.5.0@sha256:668f299c4f0ecbf82f0178776d980f646cf12b74138565990f66038db191180a
-    platform: linux/x86_64
-    container_name: db-backup
+    # Pin MYSQL_BACKUP_IMAGE to the published digest after image release.
+    image: ${MYSQL_BACKUP_IMAGE:-ghcr.io/lehigh-university-libraries/mysql-backup:main}
     restart: unless-stopped
-    user: "0"
-    env_file:
-      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      DB_DUMP_CRON: "0 2 * * *" # UTC
-      DB_DUMP_TARGET: /db
-      DB_SERVER: db
-      DB_USER: root
-      DB_PASS: ${MYSQL_ROOT_PASSWORD} # from .env
-    command: dump
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: "${DB_PORT:-3306}"
+      DB_USER: ${MYSQL_USER:-as}
+      DB_NAME: ${MYSQL_DATABASE:-archivesspace}
+      BACKUP_CRON: "0 2 * * *" # UTC; 7 daily copies and 12 completed months.
+      DB_PASSWORD: "${MYSQL_PASSWORD:?Run make init or configure .env}"
     volumes:
       - ./backups:/db
     depends_on:
