@@ -25,7 +25,7 @@ services:
       - ./stylesheets:/archivesspace/stylesheets
 
   db:
-    image: mysql:8.4.11@sha256:6ea90827b1100f8f2ae306a539f86d2c264a26ed435a2a9f75551dd5c3aeb242
+    image: mysql:8.4.13@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
     platform: linux/x86_64
     cap_add:
       - SYS_NICE
@@ -71,7 +71,7 @@ services:
       - solr-data:/var/solr
 
   traefik:
-    image: traefik:v3.7.14@sha256:e849695bc5c317da0cec22bfee4794fd9e15871fe554f864d31b625983e883ff
+    image: traefik:v3.7.19@sha256:aa942a00bce033c909bf1f7e861d93761be4b31a035f10d2410d33e38a8f41cf
     restart: always
     container_name: traefik
     command: >-
